@@ -20,8 +20,7 @@
 
 (defmodule Stream
   (doc zero "
-    The zero stream; comprised of a `next` that constantly returns `Step.Done`
-    and the `zero` value for the stream's `state`.")
+    The zero stream; a finished, empty stream.")
   (implements zero zero)
   (defn zero []
     (Stream.init (fn [s] (Step.Done)) (zero)))

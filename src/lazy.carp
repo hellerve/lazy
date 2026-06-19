@@ -15,8 +15,7 @@
 (doc Lazy
   "The Lazy module provides mechanisms for defining lazy computations.")
 (defmodule Lazy
-  (doc Computation
-    "A computation, either a value or a thunk.")
+  
   (private Computation)
   (hidden Computation)
   (deftype (Computation a)
@@ -28,8 +27,7 @@
     "The type of lazy computations.")
   (deftype (Suspended a) [member (Lazy.Computation a)])
 
-  (doc compute
-    "Computes a computation or returns its result.")
+  
   (private compute)
   (hidden compute)
   (defn compute [s evaluate?]

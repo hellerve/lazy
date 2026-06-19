@@ -14,8 +14,6 @@
 
 (load "src/stream/step.carp")
 
-;; Stream interfaces. All streams implement these interfaces,
-;; which are usually just aliases to type getters and setters.
 (doc get-state
   "Given a stream, returns its current state.")
 (definterface get-state (Fn [(Ref (stream a s))] s))
@@ -29,8 +27,6 @@
   "Initializes a new stream from a state `s` and a function that computes a `Step` from a state.")
 (definterface stream (Fn [(Fn [s] (Step a s)) s] (stream a s)))
 
-;; Stream interface implementations
-;; It's a little odd, but defining types/implementations here simplifies loading orders.
 (doc Stream "
   The type of Streams.
 
@@ -61,7 +57,6 @@
   The type of infinite streams.")
 (deftype (InfiniteStream a s) [next (Fn [s] (Step a s)) state s])
 
-;; Stream interface implementations
 (defmodule InfiniteStream
   (implements get-state state-)
   (defn state- [s]

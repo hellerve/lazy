@@ -26,9 +26,8 @@
           _ false)
       (Step.Skip t)
         (match s*
-          ;; We append refs to = calls since many core types implement = for
-          ;; refs, but not for values (e.g. array, maybe).
-          ;; Most other types also have a ref = implementation (Int, etc.)
+          ;; Compare via refs: many core types (Array, Maybe) implement = for
+          ;; refs but not values.
           (Step.Skip t*) (= &t &t*)
           _ false)
       (Step.Yield x u)

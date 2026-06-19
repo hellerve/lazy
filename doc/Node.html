@@ -61,9 +61,8 @@
                     Node
                 </h1>
                 <div class="module-description">
-                    <p>The type of stream values.</p>
-<p>In order to return a safe bottom value when getting stream values, we need
-Node to avoid having to return Step directly.</p>
+                    <p>The type of stream values. Wraps a yielded value (<code>Node</code>) or a safe bottom
+value (<code>Nil</code>), so stream getters never have to return <code>Step</code> directly.</p>
 
                 </div>
                 <div class="binder">

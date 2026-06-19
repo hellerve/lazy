@@ -13,10 +13,8 @@
 ;;  limitations under the License.
 
 (doc Node "
-  The type of stream values.
-
-  In order to return a safe bottom value when getting stream values, we need
-  Node to avoid having to return Step directly.")
+  The type of stream values. Wraps a yielded value (`Node`) or a safe bottom
+  value (`Nil`), so stream getters never have to return `Step` directly.")
 (deftype (Node a) (Nil []) (Node [a]))
 
 (defmodule Node
